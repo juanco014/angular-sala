@@ -10,5 +10,6 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'angular-sala';
+  public  title = 'angular-sala';
+  public nombre: String ='pagina de prueba';
 }
