@@ -1,1 +1,21 @@
-<p>listar-salas works!</p>
+<table class="table">
+
+  <thead>
+
+  <tr>
+    <th scope="col"> codigo </th>
+    <th scope="col"> curso </th>
+    <th scope="col"> programa </th>
+  </tr>
+  </thead>
+  <tbody>
+  <ng-container *ngFor="let sala of salas">
+  <tr >
+    <td> {{sala.id}}</td>
+    <td> {{sala.sala}} </td>
+    <td> {{sala.programa}} </td>
+
+  </tr>
+  </ng-container>
+  </tbody>
+</table>

@@ -1,18 +1,19 @@
-import {RouterModule, Routes } from "@angular/router";
-import { HeaderComponent } from "./header/header.component";
-import { FooterComponent } from "./footer/footer.component";
-import { NgModule } from "@angular/core";
-import { AppComponent } from "./app.component";
-import { BrowserModule } from "@angular/platform-browser";
+import {RouterModule, Routes} from "@angular/router";
+import {HeaderComponent} from "./header/header.component";
+import {FooterComponent} from "./footer/footer.component";
+import {NgModule} from "@angular/core";
+import {AppComponent} from "./app.component";
+import {BrowserModule} from "@angular/platform-browser";
+import {ListarSalasComponent} from "./salas/listar-salas/listar-salas.component";
+import {CommonModule} from "@angular/common";
 
 
-
-
-const rutas: Routes =[
+const rutas:
+  Routes =[
   //{path: '', redirectTo: 'listar-cursos', pathMatch: 'full'},
-  {path: 'header', component: HeaderComponent},
-  {path: 'footer', component: FooterComponent},
-  //{path: '', loadChildren: () => import('./cursos/cursos.module').then(m => m.CursosModule)},
+  {path: '/header', component: HeaderComponent},
+  {path: '/footer', component: FooterComponent},
+  {path: 'listar-salas', component:ListarSalasComponent},
 ]
 
 @NgModule({
@@ -20,6 +21,7 @@ const rutas: Routes =[
     AppComponent,
     HeaderComponent,
     FooterComponent,
+    ListarSalasComponent,
   ],
   imports: [
     //SweetAlert2Module.forRoot(),
@@ -30,4 +32,3 @@ const rutas: Routes =[
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
