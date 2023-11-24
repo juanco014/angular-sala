@@ -1,21 +1,28 @@
-<table class="table">
+<div class="container-fluid max-width-900">
+  <!--detalle de la sala -->
+  <div *ngIf="selected" class="row row-cols-1" >
+    <div>
+      <app-detalle-sala> </app-detalle-sala>
+    </div>
+  </div>
+  <!-- listado de salas -->
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col"> codigo </th>
+      <th scope="col"> curso </th>
+      <th scope="col"> programa </th>
+    </tr>
+    </thead>
+    <tbody>
+    <ng-container *ngFor="let sala of salas">
+    <tr (click)='onselected(sala)'>
+      <td> {{sala.id}}</td>
+      <td> {{sala.sala}} </td>
+      <td> {{sala.programa}} </td>
 
-  <thead>
-
-  <tr>
-    <th scope="col"> codigo </th>
-    <th scope="col"> curso </th>
-    <th scope="col"> programa </th>
-  </tr>
-  </thead>
-  <tbody>
-  <ng-container *ngFor="let sala of salas">
-  <tr >
-    <td> {{sala.id}}</td>
-    <td> {{sala.sala}} </td>
-    <td> {{sala.programa}} </td>
-
-  </tr>
-  </ng-container>
-  </tbody>
-</table>
+    </tr>
+    </ng-container>
+    </tbody>
+  </table>
+</div>

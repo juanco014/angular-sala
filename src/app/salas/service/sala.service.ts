@@ -13,8 +13,9 @@ export class SalaService {
 
   }
 
-  getSala(): Observable<Sala> {
-    return this.httpClient.get<Sala>(this.baseUrl );
+  getSalas(): Observable<Sala[]> {
+     // @ts-ignore
+    return  this.httpClient.get<Sala[]>(this.baseUrl );
   }
 
 }

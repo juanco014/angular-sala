@@ -5,12 +5,11 @@ import {NgModule} from "@angular/core";
 import {AppComponent} from "./app.component";
 import {BrowserModule} from "@angular/platform-browser";
 import {ListarSalasComponent} from "./salas/listar-salas/listar-salas.component";
-import {CommonModule} from "@angular/common";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 
 const rutas:
   Routes =[
-  //{path: '', redirectTo: 'listar-cursos', pathMatch: 'full'},
   {path: '/header', component: HeaderComponent},
   {path: '/footer', component: FooterComponent},
   {path: 'listar-salas', component:ListarSalasComponent},
@@ -18,14 +17,12 @@ const rutas:
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    ListarSalasComponent,
+
   ],
   imports: [
     //SweetAlert2Module.forRoot(),
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot(rutas),
   ],
   providers: [],
