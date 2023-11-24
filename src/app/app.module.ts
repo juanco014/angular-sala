@@ -8,11 +8,12 @@ import {ListarSalasComponent} from "./salas/listar-salas/listar-salas.component"
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 
-const rutas:
-  Routes =[
-  {path: '/header', component: HeaderComponent},
-  {path: '/footer', component: FooterComponent},
-  {path: 'listar-salas', component:ListarSalasComponent},
+
+const rutas: Routes =[
+  //{path: '', redirectTo: 'listar-cursos', pathMatch: 'full'},
+  {path: 'header', component: HeaderComponent},
+  {path: 'footer', component: FooterComponent},
+  {path: '', loadChildren: () => import('./salas/salas.module').then(m => m.SalasModule)},
 ]
 
 @NgModule({
