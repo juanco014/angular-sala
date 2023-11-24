@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {Sala} from "../model/sala";
 
 @Component({
   selector: 'app-detalle-sala',
@@ -10,4 +11,5 @@ import { CommonModule } from '@angular/common';
 })
 export class DetalleSalaComponent {
 
+  @Input() sala!: Sala;
 }

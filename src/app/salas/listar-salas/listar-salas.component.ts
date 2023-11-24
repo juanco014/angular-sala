@@ -35,5 +35,6 @@ export class ListarSalasComponent implements OnInit{
   onselected(sala: Sala) {
     this.salaSelected = sala;
     this.selected = true;
+    //this.router.navigate(['/salas/detalle',sala.id]); //cositas aparte
   }
 }
