@@ -4,7 +4,6 @@ import {FooterComponent} from "./footer/footer.component";
 import {NgModule} from "@angular/core";
 import {AppComponent} from "./app.component";
 import {BrowserModule} from "@angular/platform-browser";
-import {ListarSalasComponent} from "./salas/listar-salas/listar-salas.component";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 
@@ -18,7 +17,9 @@ const rutas: Routes =[
 
 @NgModule({
   declarations: [
-
+    AppComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     //SweetAlert2Module.forRoot(),
@@ -27,6 +28,6 @@ const rutas: Routes =[
     RouterModule.forRoot(rutas),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: []
 })
 export class AppModule { }

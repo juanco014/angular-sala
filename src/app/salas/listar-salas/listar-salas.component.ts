@@ -7,8 +7,6 @@ import {DetalleSalaComponent} from "../detalle-sala/detalle-sala.component";
 
 @Component({
   selector: 'app-listar-salas',
-  standalone: true,
-  imports: [CommonModule, DetalleSalaComponent],
   templateUrl: './listar-salas.component.html',
   styleUrl: './listar-salas.component.css'
 })
