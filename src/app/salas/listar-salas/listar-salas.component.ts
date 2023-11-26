@@ -56,6 +56,7 @@ export class ListarSalasComponent implements OnInit{
   //
   //     </tbody>
   // </table>" +this.salaSelected.sala,"succes");
+
    borrarSala(sala: Sala) {
      /**Swal.fire({
       title: "esta seguro?",

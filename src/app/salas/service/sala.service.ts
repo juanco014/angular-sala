@@ -1,21 +1,59 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Sala} from "../model/sala";
-import {Observable} from "rxjs";
+import {map, Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class SalaService {
 
-  private baseUrl: String = "https://gist.githubusercontent.com/juanco014/6d2cec7562639b6ba3081a47f23d079d/raw/a081c0164c898efeaa62c07cd3310cad7edca905/gistfile1.txt";
+  private baseUrl: String = "http://localhost:8080";
+
   constructor(private httpClient: HttpClient) {
 
   }
 
+  /**
+   * Metodo que obtiene los cursos
+   * @returns Observable<Curso[]> Lista de cursos
+   */
   getSalas(): Observable<Sala[]> {
-     // @ts-ignore
-    return  this.httpClient.get<Sala[]>(this.baseUrl );
+    return this.httpClient.get<Sala[]>(this.baseUrl + "/salaes")
+      .pipe(
+        map((result: any) => {
+          console.log(result._embedded.salaes);
+          return result._embedded.salaes;
+        }));
   }
 
+  /**
+   * Metodo que obtiene un curso
+   */
+  getSala(idSala: number): Observable<Sala> {
+    return this.httpClient.get<Sala>(this.baseUrl + '/salaes/' + idSala);
+  }
+
+  /**
+   * Metodo que crea un curso
+   * @param curso Curso a crear
+   */
+  crearSala(sala: Sala): Observable<Sala> {
+    return this.httpClient.post<Sala>(this.baseUrl + "/salaes", Sala);
+  }
+
+  /**
+   * Metodo que edita un curso
+   * @param curso Curso a editar
+   */
+  editarSala(sala: Sala): Observable<Sala> {
+    return this.httpClient.put<Sala>(this.baseUrl + "/salaes/" + sala.id, sala);
+  }
+
+  /**
+   * Metodo que elimina un curso
+   */
+  borrarSala(idSala: number): Observable<any> {
+    return this.httpClient.delete(this.baseUrl + "/salaes/" + idSala);
+  }
 }

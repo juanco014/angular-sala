@@ -4,20 +4,24 @@ import {SalasRoutingModule} from "./salas-routing.module";
 import {CrearSalaComponent} from "./crear-sala/crear-sala.component";
 import {DetalleSalaComponent} from "./detalle-sala/detalle-sala.component";
 import {ListarSalasComponent} from "./listar-salas/listar-salas.component";
+import {ReactiveFormsModule} from "@angular/forms";
+import {EditarSalaComponent} from "./editar-sala/editar-sala.component";
 
 
 @NgModule({
   declarations: [
     CrearSalaComponent,
     DetalleSalaComponent,
-    ListarSalasComponent
+    ListarSalasComponent,
+    EditarSalaComponent
   ],
   exports: [
     ListarSalasComponent
   ],
-  imports: [
-    CommonModule,
-     SalasRoutingModule
-  ]
+    imports: [
+        CommonModule,
+        SalasRoutingModule,
+        ReactiveFormsModule
+    ]
 })
 export class SalasModule { }

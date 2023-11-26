@@ -1,19 +1,19 @@
-import {Component, OnInit} from "@angular/core";
-import {CommonModule} from "@angular/common";
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {Component, OnInit} from '@angular/core';
+import { CommonModule } from '@angular/common';
+import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {SalaService} from "../service/sala.service";
 import {Sala} from "../model/sala";
 import Swal from "sweetalert2";
 
 @Component({
-  selector: 'app-crear-sala',
-  templateUrl: './crear-sala.component.html',
-  styleUrl: './crear-sala.component.css'
+  selector: 'app-editar-sala',
+  templateUrl: './editar-sala.component.html',
+  styleUrl: './editar-sala.component.css'
 })
-export class CrearSalaComponent implements OnInit {
-  public crearSalaForm: FormGroup=new FormGroup({
-  sala: new FormControl('',[Validators.required,Validators.minLength(4)]),
+export class EditarSalaComponent implements OnInit {
+  public editarSalaForm: FormGroup=new FormGroup({
+    sala: new FormControl('',[Validators.required,Validators.minLength(4)]),
     programa: new FormControl('',[Validators.required,Validators.minLength(4)]),
   })
 
@@ -36,25 +36,25 @@ export class CrearSalaComponent implements OnInit {
   }
 
   /**
-   * Metodo que crea un curso en el servicio
+   * Metodo que edita un curso en el servicio
    * @param curso Curso a crear
    */
 
-  crearSala(sala: Sala){
-    this.salaService.crearSala(sala).subscribe(
+  editarSala(sala: Sala){
+    this.salaService.editarSala(sala).subscribe(
       (sala:Sala) => {
         Swal.fire(
           'Curso creado',
-          `El curso ${sala.sala} ha sido creado con exito`,
+          `La sala ${sala.sala} ha sido editado con exito`,
           'success'
         );
-        this.crearSalaForm.reset();  //Resetea el formulario
+        this.editarSalaForm.reset();  //Resetea el formulario
         this.router.navigate(['/listar']);
       });
   }
 
   ngOnInit(): void {
-    this.crearSalaForm = this.formBuilder.group({
+    this.editarSalaForm = this.formBuilder.group({
       curso: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+$/)]],
       programa: ['', [Validators.required, Validators.minLength(4)]]
     });
