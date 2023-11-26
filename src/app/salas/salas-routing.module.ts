@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {ListarSalasComponent} from "./listar-salas/listar-salas.component";
 import {CrearSalaComponent} from "./crear-sala/crear-sala.component";
 import {DetalleSalaComponent} from "./detalle-sala/detalle-sala.component";
+import {EditarSalaComponent} from "./editar-sala/editar-sala.component";
 
 const routes: Routes = [
   {
@@ -19,6 +20,10 @@ const routes: Routes = [
   },
   {
     path: 'detalle/:id',
+    component: DetalleSalaComponent
+  },
+  {
+    path: 'editar/:id',
     component: DetalleSalaComponent
   }
 ];

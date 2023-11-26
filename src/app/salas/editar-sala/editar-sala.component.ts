@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {SalaService} from "../service/sala.service";
 import {Sala} from "../model/sala";
 import Swal from "sweetalert2";
@@ -12,10 +12,9 @@ import Swal from "sweetalert2";
   styleUrl: './editar-sala.component.css'
 })
 export class EditarSalaComponent implements OnInit {
-  public editarSalaForm: FormGroup=new FormGroup({
-    sala: new FormControl('',[Validators.required,Validators.minLength(4)]),
-    programa: new FormControl('',[Validators.required,Validators.minLength(4)]),
-  })
+  public editarSalaForm!: FormGroup;
+    private sala!: Sala;
+
 
   /**
    * Constructor del componente
@@ -24,14 +23,14 @@ export class EditarSalaComponent implements OnInit {
    * @param salaService Servicio de sala para crear una sala
    */
 
-  constructor(public router:Router,public formBuilder: FormBuilder,private salaService: SalaService) {
+  constructor(public router:Router,public formBuilder: FormBuilder,private salaService: SalaService, private route:ActivatedRoute) {
 
   }
 
   /**
    * metodo que crea una sala
    */
-  cancelarCrearSala(){
+  cancelarEditarSala(){
     this.router.navigate(["/Listar"]);
   }
 
@@ -54,9 +53,16 @@ export class EditarSalaComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.editarSalaForm = this.formBuilder.group({
-      curso: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+$/)]],
-      programa: ['', [Validators.required, Validators.minLength(4)]]
+    const idSala:number = parseInt(this.route.snapshot.params["id"]);
+
+    this.salaService.getSala(idSala).subscribe((sala:Sala) => {
+      this.sala= sala;
+
+      this.editarSalaForm = this.formBuilder.group({
+        curso: [this.sala.sala, [Validators.required, Validators.pattern(/^[a-zA-Z]+$/)]],
+        programa: [this.sala.programa, [Validators.required, Validators.minLength(4)]]
+      });
     });
   }
 }
+

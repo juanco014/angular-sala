@@ -34,28 +34,9 @@ export class ListarSalasComponent implements OnInit{
   onselected(sala: Sala) {
     this.salaSelected = sala;
     this.selected = true;
-    //this.router.navigate(['/salas/detalle',sala.id]); //cositas aparte
-  }
 
-  //swal.fire("detalle de la sala ",+
-  // "<table class="table">
-  //     <thead>
-  //     <tr>
-  //         <th scope="col"> codigo </th>
-  //         <th scope="col"> curso </th>
-  //         <th scope="col"> programa </th>
-  //     </tr>
-  //     </thead>
-  //     <tbody>
-  //
-  //         <tr >
-  //             <td> this.salaSelected.id</td>
-  //            <td> this.salaSelected.sala </td>
-  //             <td> this.salaSelected.programa</td>
-  //         </tr>
-  //
-  //     </tbody>
-  // </table>" +this.salaSelected.sala,"succes");
+    this.routerPath.navigate(['/salas/editar/',+ sala.id]); //cositas aparte
+  }
 
    borrarSala(sala: Sala) {
      /**Swal.fire({
