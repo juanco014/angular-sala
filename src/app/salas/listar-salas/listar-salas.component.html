@@ -16,11 +16,11 @@
     </thead>
     <tbody>
     <ng-container *ngFor="let sala of salas">
-    <tr (click)='onselected(sala)'>
-      <td> {{sala.id}}</td>
-      <td> {{sala.sala}} </td>
-      <td> {{sala.programa}} </td>
-
+    <tr >
+      <td (click)='onselected(sala)'> {{sala.id}}</td>
+      <td (click)='onselected(sala)'> {{sala.sala}} </td>
+      <td (click)='onselected(sala)'> {{sala.programa}} </td>
+      <td (click)="borrarSala(sala)"><img src="../../../assets/1214428.png" alt="borrar curso"/></td>
     </tr>
     </ng-container>
     </tbody>

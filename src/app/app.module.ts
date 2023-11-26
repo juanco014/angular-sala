@@ -10,6 +10,7 @@ import * as Sweetalert2 from "sweetalert2";
 
 
 
+
 const rutas: Routes =[
   //{path: '', redirectTo: 'listar-cursos', pathMatch: 'full'},
   {path: 'header', component: HeaderComponent},
