@@ -31,6 +31,6 @@ const rutas: Routes =[
     RouterModule.forRoot(rutas),
   ],
   providers: [],
-  bootstrap: []
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
