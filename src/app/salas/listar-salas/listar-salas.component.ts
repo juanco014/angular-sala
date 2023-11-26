@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Sala} from "../model/sala";
 import {SalaService} from "../service/sala.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import Swal from "sweetalert2";
 
 
 @Component({
@@ -36,7 +37,7 @@ export class ListarSalasComponent implements OnInit{
   }
 
    borrarSala(sala: Sala) {
-     /**Swal.fire({
+     Swal.fire({
       title: "esta seguro?",
       text: "usted no puede revetir esto!",
       icon: "warning",
@@ -46,17 +47,27 @@ export class ListarSalasComponent implements OnInit{
       confirmButtonText: "Si, borrar la sala!"
       }).then((result) => {
       if (result.isConfirmed) {
+       this.salaService.borrarSala(sala.id).subscribe( () => {
       Swal.fire({
       title: "eliminado!",
       text: "la sala a sido eliminada.",
       icon: "success"
       });
-      }
+       this.salas= this.salas.filter(((c) => c !== sala));
       });
-      **/
+      }
+     });
    }
 
-  crearSala() {
-    this.routerPath.navigate(['/crear']);
-  }
+    /**
+     * metodo que redireccionea crear
+     */
+    crearSala() {
+        this.routerPath.navigate(['/crear']);
+    }
 }
+
+
+
+
+

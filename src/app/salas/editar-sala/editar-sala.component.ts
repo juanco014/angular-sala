@@ -11,8 +11,12 @@ import Swal from "sweetalert2";
   styleUrl: './editar-sala.component.css'
 })
 export class EditarSalaComponent implements OnInit {
-  public editarSalaForm!: FormGroup;
-    private sala!: Sala;
+  public editarSalaForm: FormGroup = new FormGroup( {
+    id: new FormControl('',[Validators.required,Validators.minLength(4)]),
+    curso: new FormControl('',[Validators.required,Validators.minLength(4)]),
+    programa: new FormControl('',[Validators.required,Validators.minLength(4)])
+  })
+    public sala!: Sala;
 
 
   /**
@@ -47,8 +51,6 @@ export class EditarSalaComponent implements OnInit {
           `La sala ${sala.sala} ha sido editado con exito`,
           'success'
         );
-        this.editarSalaForm.reset();  //Resetea el formulario
-        this.router.navigate(['/listar']);
       });
   }
 
@@ -59,10 +61,10 @@ export class EditarSalaComponent implements OnInit {
       this.sala= sala;
 
       this.editarSalaForm = this.formBuilder.group({
+        id: [this.sala.id,[]],
         curso: [this.sala.sala, [Validators.required, Validators.pattern(/^[a-zA-Z]+$/)]],
         programa: [this.sala.programa, [Validators.required, Validators.minLength(4)]]
       });
     });
   }
 }
-
