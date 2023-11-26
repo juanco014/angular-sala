@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import { CommonModule } from '@angular/common';
 import {Sala} from "../model/sala";
 import {SalaService} from "../service/sala.service";
-import {DetalleSalaComponent} from "../detalle-sala/detalle-sala.component";
+import {ActivatedRoute, Router} from "@angular/router";
+
 
 
 @Component({
@@ -16,7 +16,8 @@ export class ListarSalasComponent implements OnInit{
   public salaSelected!:Sala;
   public selected: boolean=false;
 
-  constructor(private salaService: SalaService) {
+
+  constructor(private salaService: SalaService, private routerPath: Router, private router: ActivatedRoute) {
     this.salaService.getSalas().subscribe
         ( (salas:  Array<Sala>)=> {
       this.salas = salas;
@@ -28,7 +29,6 @@ export class ListarSalasComponent implements OnInit{
     this.salas[0] ={id:1,sala:'angular',programa:'programacion'};
   }
 
-    protected readonly onselect = onselect;
 
   onselected(sala: Sala) {
     this.salaSelected = sala;

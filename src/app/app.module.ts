@@ -5,6 +5,8 @@ import {NgModule} from "@angular/core";
 import {AppComponent} from "./app.component";
 import {BrowserModule} from "@angular/platform-browser";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import * as Sweetalert2 from "sweetalert2";
+
 
 
 
@@ -22,7 +24,7 @@ const rutas: Routes =[
     FooterComponent
   ],
   imports: [
-    //SweetAlert2Module.forRoot(),
+    //Sweetalert2.forRoot(),
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(rutas),
