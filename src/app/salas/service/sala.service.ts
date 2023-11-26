@@ -36,7 +36,7 @@ export class SalaService {
 
   /**
    * Metodo que crea un curso
-   * @param curso Curso a crear
+   * @param sala
    */
   crearSala(sala: Sala): Observable<Sala> {
     return this.httpClient.post<Sala>(this.baseUrl + "/salaes", Sala);
@@ -44,7 +44,7 @@ export class SalaService {
 
   /**
    * Metodo que edita un curso
-   * @param curso Curso a editar
+   * @param sala
    */
   editarSala(sala: Sala): Observable<Sala> {
     return this.httpClient.put<Sala>(this.baseUrl + "/salaes/" + sala.id, sala);

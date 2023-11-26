@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import { CommonModule } from '@angular/common';
 import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {SalaService} from "../service/sala.service";
@@ -21,6 +20,7 @@ export class EditarSalaComponent implements OnInit {
    * @param router Router de la aplicacion
    * @param formBuilder Formulario de creacion de sala
    * @param salaService Servicio de sala para crear una sala
+   * @param route
    */
 
   constructor(public router:Router,public formBuilder: FormBuilder,private salaService: SalaService, private route:ActivatedRoute) {
@@ -36,7 +36,7 @@ export class EditarSalaComponent implements OnInit {
 
   /**
    * Metodo que edita un curso en el servicio
-   * @param curso Curso a crear
+   * @param sala
    */
 
   editarSala(sala: Sala){

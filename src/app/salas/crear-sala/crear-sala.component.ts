@@ -1,5 +1,4 @@
 import {Component, OnInit} from "@angular/core";
-import {CommonModule} from "@angular/common";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {SalaService} from "../service/sala.service";
@@ -37,7 +36,7 @@ export class CrearSalaComponent implements OnInit {
 
   /**
    * Metodo que crea un curso en el servicio
-   * @param curso Curso a crear
+   * @param sala
    */
 
   crearSala(sala: Sala){

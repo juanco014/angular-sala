@@ -24,7 +24,7 @@ const routes: Routes = [
   },
   {
     path: 'editar/:id',
-    component: DetalleSalaComponent
+    component: EditarSalaComponent
   }
 ];
 

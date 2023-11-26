@@ -2,8 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {Sala} from "../model/sala";
 import {SalaService} from "../service/sala.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import Swal from 'sweetalert2';
-
 
 
 @Component({
@@ -16,7 +14,6 @@ export class ListarSalasComponent implements OnInit{
   public nombreSala!:String;
   public salaSelected!:Sala;
   public selected: boolean=false;
-
 
   constructor(private salaService: SalaService, private routerPath: Router, private router: ActivatedRoute) {
     this.salaService.getSalas().subscribe
@@ -35,7 +32,7 @@ export class ListarSalasComponent implements OnInit{
     this.salaSelected = sala;
     this.selected = true;
 
-    this.routerPath.navigate(['/salas/editar/',+ sala.id]); //cositas aparte
+    this.routerPath.navigate(['editar/',+ sala.id]); //cositas aparte
   }
 
    borrarSala(sala: Sala) {
@@ -58,4 +55,8 @@ export class ListarSalasComponent implements OnInit{
       });
       **/
    }
+
+  crearSala() {
+    this.routerPath.navigate(['/crear']);
+  }
 }
