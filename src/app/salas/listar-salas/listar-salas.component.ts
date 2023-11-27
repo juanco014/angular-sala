@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {Sala} from "../model/sala";
 import {SalaService} from "../service/sala.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import Swal from "sweetalert2";
 
 
 @Component({
@@ -37,7 +36,7 @@ export class ListarSalasComponent implements OnInit{
   }
 
    borrarSala(sala: Sala) {
-     Swal.fire({
+     /**Swal.fire({
       title: "esta seguro?",
       text: "usted no puede revetir esto!",
       icon: "warning",
@@ -57,6 +56,7 @@ export class ListarSalasComponent implements OnInit{
       });
       }
      });
+       **/
    }
 
     /**

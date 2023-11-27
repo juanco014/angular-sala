@@ -11,6 +11,7 @@ import Swal from "sweetalert2";
   styleUrl: './editar-sala.component.css'
 })
 export class EditarSalaComponent implements OnInit {
+// Creamos e inicializamos el formulario editarCursoForm usando el constructor de FormGroup
   public editarSalaForm: FormGroup = new FormGroup( {
     id: new FormControl('',[Validators.required,Validators.minLength(4)]),
     curso: new FormControl('',[Validators.required,Validators.minLength(4)]),

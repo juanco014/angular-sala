@@ -8,6 +8,8 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {EditarSalaComponent} from "./editar-sala/editar-sala.component";
 
 
+
+// @ts-ignore
 @NgModule({
   declarations: [
     CrearSalaComponent,

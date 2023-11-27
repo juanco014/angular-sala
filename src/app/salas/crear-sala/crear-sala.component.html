@@ -1,19 +1,19 @@
 <div class="card mx-auto" style="max-width: 500px;">
   <div class="card-body">
-    <h5 class="card-title">Crear Curso</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Datos del curso</h6>
+    <h5 class="card-title">Crear Sala</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Datos de la Sala</h6>
 
     <form [formGroup]="crearSalaForm" (ngSubmit)="crearSala(crearSalaForm.value)">
       <div class="row">
         <div class="col">
 
           <!--   Campo nombre del curso   -->
-          <label for="curso">Curso</label>
-          <input id="curso"
+          <label for="sala">Sala</label>
+          <input id="sala"
                  type="text"
-                 name="curso"
-                 placeholder="Escriba el nombre del curso aqui"
-                 formControlName="curso"
+                 name="sala"
+                 placeholder="Escriba el nombre de la sala aqui"
+                 formControlName="sala"
                  class="form-control"
           >
 
